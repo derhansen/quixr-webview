@@ -1,7 +1,7 @@
 {
-  "name": "angularjs-seed",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "name": "quixr-webview",
+  "description": "A webview to visualize Quixr analysis data",
+  "repository": "https://github.com/derhansen/quixr-webview",
   "devDependencies": {
     "phantomjs" : "~1.9",
     "karma" : "~0.10",
