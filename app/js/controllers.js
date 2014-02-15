@@ -2,7 +2,7 @@
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
+angular.module('quixrWebview.controllers', []).
   controller('MyCtrl1', [function() {
 
   }])
