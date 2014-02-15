@@ -3,9 +3,9 @@
 /* Controllers */
 
 angular.module('quixrWebview.controllers', []).
-  controller('MyCtrl1', [function() {
+  controller('TrafficCtrl1', [function() {
 
   }])
-  .controller('MyCtrl2', [function() {
+  .controller('DiskspaceCtrl1', [function() {
 
   }]);
