@@ -1,1 +1,22 @@
 <p>This is the partial for traffic.</p>
+
+<div ng-repeat="(name, vhost) in vhosts">
+    <h3>{{name}}</h3>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tr>
+                <th></th>
+                <th ng-repeat="n in [] | range:12">
+                    {{n+1}}
+                </th>
+            </tr>
+            <tr ng-repeat="(year, traffic) in vhost.traffic">
+                <th>{{year}}</th>
+                <td ng-repeat="month in [] | months" class="month">
+                    {{traffic[month] | sumByValue | formatBytes:'KB'}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
