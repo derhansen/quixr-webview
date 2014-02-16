@@ -52,7 +52,7 @@ angular.module('quixrWebview.filters', [])
             default:
                 formated = data;
         }
-        return parseFloat(formated).toFixed(2);
+        return parseFloat(formated);
     };
   })
 ;

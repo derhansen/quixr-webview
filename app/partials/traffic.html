@@ -14,7 +14,7 @@
             <tr ng-repeat="(year, traffic) in vhost.traffic">
                 <th>{{year}}</th>
                 <td ng-repeat="month in [] | months" class="month">
-                    {{traffic[month] | sumByValue | formatBytes:'KB' | number}}
+                    {{traffic[month] | sumByValue | formatBytes:'KB' | number:2}}
                 </td>
             </tr>
         </table>
