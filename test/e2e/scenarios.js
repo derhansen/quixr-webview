@@ -19,8 +19,8 @@ describe('Quixr Webview', function() {
 
 
     it('should render traffic when user navigates to /traffic', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for traffic/);
+      expect(element.all(by.css('[ng-view] h2')).first().getText()).
+        toMatch(/Traffic/);
     });
 
   });
@@ -34,8 +34,8 @@ describe('Quixr Webview', function() {
 
 
     it('should render diskspace when user navigates to /diskspace', function() {
-      expect(element.all(by.css('[ng-view] p')).first().getText()).
-        toMatch(/partial for diskspace/);
+      expect(element.all(by.css('[ng-view] h2')).first().getText()).
+        toMatch(/Diskspace/);
     });
 
   });
