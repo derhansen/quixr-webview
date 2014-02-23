@@ -22,7 +22,7 @@ angular.module('quixrWebview.filters', [])
             return 0;
         }
         var sum = 0;
-        $.each(data, function(index, value) {
+        angular.forEach(data, function(value, key) {
             sum += parseInt(value);
         });
         return sum;

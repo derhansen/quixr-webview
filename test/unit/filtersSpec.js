@@ -42,8 +42,23 @@ describe('filter', function () {
             expect(formatBytesFilter(data, unit)).toEqual(1);
         }));
 
-        it('should return data if not unit given', inject(function (formatBytesFilter) {
+        it('should return data if no unit given', inject(function (formatBytesFilter) {
             expect(formatBytesFilter(data, null)).toEqual(data);
         }));
+    });
+
+    describe('sumByValue', function () {
+       it('should return zero if not data given', inject(function (sumByValueFilter) {
+           expect(sumByValueFilter(null)).toEqual(0)
+       }));
+
+        it('should add all numbers from the given object', inject(function (sumByValueFilter) {
+            var data = {1:10,2:20,3:30};
+            expect(sumByValueFilter(data)).toEqual(60)
+        }))
+        it('should return NaN if object does contain string', inject(function (sumByValueFilter) {
+            var data = {1:10,2:20,3:'wrong'};
+            expect(sumByValueFilter(data)).toBeNaN()
+        }))
     });
 });
