@@ -23,22 +23,22 @@ describe('filter', function () {
         });
 
         it('should calculate given bytes to KB', inject(function (formatBytesFilter) {
-            var unit = 'KB';
+            var unit = 'kb';
             expect(formatBytesFilter(data, unit)).toEqual(1073741824);
         }));
 
         it('should calculate given bytes to MB', inject(function (formatBytesFilter) {
-            var unit = 'MB';
+            var unit = 'mb';
             expect(formatBytesFilter(data, unit)).toEqual(1048576);
         }));
 
         it('should calculate given bytes to GB', inject(function (formatBytesFilter) {
-            var unit = 'GB';
+            var unit = 'gb';
             expect(formatBytesFilter(data, unit)).toEqual(1024);
         }));
 
         it('should calculate given bytes to TB', inject(function (formatBytesFilter) {
-            var unit = 'TB';
+            var unit = 'tb';
             expect(formatBytesFilter(data, unit)).toEqual(1);
         }));
 

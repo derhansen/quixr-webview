@@ -32,16 +32,16 @@ angular.module('quixrWebview.filters', [])
     return function(data, unit) {
         var formated = 0;
         switch (unit) {
-            case 'KB':
+            case 'kb':
                 formated = data / 1024;
                 break;
-            case 'MB':
+            case 'mb':
                 formated = data / Math.pow(1024,2);
                 break;
-            case 'GB':
+            case 'gb':
                 formated = data / Math.pow(1024,3);
                 break;
-            case 'TB':
+            case 'tb':
                 formated = data / Math.pow(1024,4);
                 break;
             default:
