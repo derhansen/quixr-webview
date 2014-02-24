@@ -28,7 +28,8 @@
                         <li><a href="#/diskspace">Diskspace</a></li>
                     </ul>
                     <form class="navbar-form pull-right">
-                        <select ng-model="unit" ng-options="unit.k as unit.v for unit in [{k:'kb',v:'KB'},{k:'mb',v:'MB'},{k:'gb',v:'GB'},{k:'tb',v:'TB'}]"
+                        <input class="form-control" placeholder="Search" ng-model="query">
+                        <select class="form-control" ng-model="unit" ng-options="unit.k as unit.v for unit in [{k:'kb',v:'KB'},{k:'mb',v:'MB'},{k:'gb',v:'GB'},{k:'tb',v:'TB'}]"
                                 ng-init="unit = 'kb'">
                         </select>
                     </form>

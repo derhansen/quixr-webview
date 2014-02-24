@@ -1,6 +1,6 @@
 <h2>Traffic</h2>
 
-<div ng-repeat="(name, vhost) in vhosts">
+<div ng-repeat="(name, vhost) in vhosts | searchByKey:query">
     <h3>{{name}}</h3>
 
     <div class="table-responsive">
