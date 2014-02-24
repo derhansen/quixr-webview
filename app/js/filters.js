@@ -28,6 +28,20 @@ angular.module('quixrWebview.filters', [])
             return sum;
         };
     })
+    .filter('averageByValue', function () {
+        return function (data) {
+            if (typeof(data) === 'undefined') {
+                return 0;
+            }
+            var sum = 0;
+            var count = 0;
+            angular.forEach(data, function (value, key) {
+                sum += parseInt(value);
+                count++;
+            });
+            return sum/count;
+        };
+    })
     .filter('searchByKey', function () {
         return function (items, query) {
             if (query === '' || typeof(query) === 'undefined') return items;

@@ -1,6 +1,22 @@
-<h2>Diskspace</h2>
+<h2>Diskspace average</h2>
 
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div ng-repeat="(name, vhost) in vhosts | searchByKey:query">
+    <h3>{{name}}</h3>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <tr>
+                <th></th>
+                <th ng-repeat="n in [] | range:12">
+                    {{n+1}}
+                </th>
+            </tr>
+            <tr ng-repeat="(year, diskspace) in vhost.diskspace">
+                <th>{{year}}</th>
+                <td ng-repeat="month in [] | range:12" class="month">
+                    {{diskspace[month+1] | averageByValue | formatBytes:unit | number:2}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

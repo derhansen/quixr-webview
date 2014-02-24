@@ -8,6 +8,8 @@ angular.module('quixrWebview.controllers', []).
             $scope.vhosts = data;
         });
   })
-  .controller('DiskspaceCtrl1', [function() {
-
-  }]);
+  .controller('DiskspaceCtrl1', function($scope, $http) {
+        $http.get('data/quixr.json').success(function(data) {
+            $scope.vhosts = data;
+        });
+  });
