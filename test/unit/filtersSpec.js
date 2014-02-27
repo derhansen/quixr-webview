@@ -61,4 +61,18 @@ describe('filter', function () {
             expect(sumByValueFilter(data)).toBeNaN()
         }))
     });
+
+    describe('averageByValue', function () {
+        it('should return zero if not data given', inject(function (averageByValueFilter) {
+            expect(averageByValueFilter(null)).toEqual(0)
+        }));
+        it('should calculate average of int-values from the given object', inject(function (averageByValueFilter) {
+            var data = {1:10,2:20,3:30};
+            expect(averageByValueFilter(data)).toEqual(20)
+        }))
+        it('should return NaN if object does contain string', inject(function (averageByValueFilter) {
+            var data = {1:10,2:20,3:'wrong'};
+            expect(averageByValueFilter(data)).toBeNaN()
+        }))
+    });
 });

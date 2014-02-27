@@ -30,7 +30,7 @@ angular.module('quixrWebview.filters', [])
     })
     .filter('averageByValue', function () {
         return function (data) {
-            if (typeof(data) === 'undefined') {
+            if (typeof(data) === 'undefined' || data === null) {
                 return 0;
             }
             var sum = 0;
