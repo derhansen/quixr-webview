@@ -3,22 +3,34 @@
 /* Controllers */
 
 angular.module('quixrWebview.controllers', []).
-  controller('TrafficCtrl1', function($scope, $http) {
+  controller('MenuCtrl1', function($scope, $location) {
+        $scope.isActive = function (viewLocation) {
+            return $location.path().indexOf(viewLocation) != -1;
+        };
+  })
+  .controller('TrafficCtrl1', function($scope, $http) {
         $http.get('data/quixr.json').success(function(data) {
             $scope.vhosts = data;
         });
   })
-  .controller('TrafficMonthCtrl1', function($scope, $routeParams, $http, $filter) {
+  .controller('MonthviewCtrl1', function($scope, $routeParams, $http, $filter) {
         $scope.vhost = $routeParams.vhost;
         $scope.month = $routeParams.month;
         $scope.year = $routeParams.year;
+        $scope.display = $routeParams.display;
 
         $http.get('data/quixr.json').success(function(data) {
-            $scope.trafData = data[$routeParams.vhost]['traffic'][$routeParams.year][$routeParams.month];
+            $scope.data = data[$routeParams.vhost][$routeParams.display][$routeParams.year][$routeParams.month];
 
             var chartObject = {
                 type: 'LineChart'
             };
+
+            chartObject.options = {
+                legend: {
+                    position: 'none'
+                }
+            }
 
             chartObject.data = {"cols": [
                 {id: "m", label: "Month", type: "string"},
@@ -27,20 +39,20 @@ angular.module('quixrWebview.controllers', []).
             };
 
             $scope.chartObject = function(unit) {
-                chartObject.data.rows = getFormattedData($scope.trafData, unit);
+                chartObject.data.rows = getFormattedData($scope.data, unit);
                 return chartObject;
             };
         });
 
         function getFormattedData(tmpData, unit) {
-            var trafData = [];
+            var data = [];
             angular.forEach(tmpData, function (value, key) {
-                trafData.push({c:[
+                data.push({c:[
                     {v: key},
                     {v: $filter('formatBytes')(value, unit).toFixed(2)}
                 ]});
             });
-            return trafData;
+            return data;
         }
 
   })
