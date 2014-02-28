@@ -3,11 +3,14 @@
 /* Controllers */
 
 angular.module('quixrWebview.controllers', []).
-  controller('MenuCtrl1', function($scope, $location) {
+  controller('WrapperCtrl1', function($scope, $location, $routeParams) {
         $scope.isActive = function (viewLocation) {
             return $location.path().indexOf(viewLocation) != -1;
         };
-  })
+        $scope.searchDisabled = function() {
+            return !(typeof($routeParams.vhost) === 'undefined');
+        }
+    })
   .controller('TrafficCtrl1', function($scope, $http) {
         $http.get('data/quixr.json').success(function(data) {
             $scope.vhosts = data;

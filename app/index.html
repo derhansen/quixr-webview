@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="css/bootstrap-custom.css"/>
 </head>
 <body role="document">
-    <div class="wrapper">
+    <div class="wrapper" ng-controller="WrapperCtrl1">
         <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -23,12 +23,12 @@
                     <a class="navbar-brand" href="#">Quixr Webview</a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav" ng-controller="MenuCtrl1">
+                    <ul class="nav navbar-nav">
                         <li ng-class="{ active: isActive('/traffic')}"><a href="#/traffic">Traffic</a></li>
                         <li ng-class="{ active: isActive('/diskspace')}"><a href="#/diskspace">Diskspace</a></li>
                     </ul>
                     <form class="navbar-form pull-right">
-                        <input class="form-control" placeholder="Search" ng-model="query">
+                        <input class="form-control" placeholder="Search" ng-model="query" ng-disabled="searchDisabled()">
                         <select class="form-control" ng-model="unit" ng-options="unit.k as unit.v for unit in [{k:'kb',v:'KB'},{k:'mb',v:'MB'},{k:'gb',v:'GB'},{k:'tb',v:'TB'}]"
                                 ng-init="unit = 'kb'">
                         </select>
