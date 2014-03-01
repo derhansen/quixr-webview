@@ -10,6 +10,7 @@ angular.module('quixrWebview.controllers', []).
         $scope.searchDisabled = function() {
             return !(typeof($routeParams.vhost) === 'undefined');
         }
+        $scope.units = [{k:'kb',v:'KB'},{k:'mb',v:'MB'},{k:'gb',v:'GB'},{k:'tb',v:'TB'}];
     })
   .controller('TrafficCtrl1', function($scope, $http) {
         $http.get('data/quixr.json').success(function(data) {
