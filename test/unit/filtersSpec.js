@@ -48,10 +48,9 @@ describe('filter', function () {
     });
 
     describe('sumByValue', function () {
-       it('should return zero if not data given', inject(function (sumByValueFilter) {
-           expect(sumByValueFilter(null)).toEqual(0)
-       }));
-
+        it('should return zero if not data given', inject(function (sumByValueFilter) {
+            expect(sumByValueFilter(null)).toEqual(0)
+        }));
         it('should add all numbers from the given object', inject(function (sumByValueFilter) {
             var data = {1:10,2:20,3:30};
             expect(sumByValueFilter(data)).toEqual(60)
@@ -59,6 +58,18 @@ describe('filter', function () {
         it('should return NaN if object does contain string', inject(function (sumByValueFilter) {
             var data = {1:10,2:20,3:'wrong'};
             expect(sumByValueFilter(data)).toBeNaN()
+        }))
+    });
+
+    describe('capitalizeFirstLetter', function () {
+        it('should capitalize first letter of string string', inject(function (capitalizeFirstLetterFilter) {
+            expect(capitalizeFirstLetterFilter('test')).toEqual('Test')
+        }));
+        it('should return empty string if empty string given', inject(function (capitalizeFirstLetterFilter) {
+            expect(capitalizeFirstLetterFilter('')).toEqual('')
+        }))
+        it('should return given sting if string starting with number', inject(function (capitalizeFirstLetterFilter) {
+            expect(capitalizeFirstLetterFilter('0test')).toEqual('0test')
         }))
     });
 
