@@ -42,6 +42,7 @@ angular.module('quixrWebview.controllers', []).
             };
 
             $scope.chartObject = function(unit) {
+                chartObject.options = {vAxis: {title: unit.toUpperCase()}};
                 chartObject.data.rows = getFormattedData($scope.data, unit);
                 return chartObject;
             };
