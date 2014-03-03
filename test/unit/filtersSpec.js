@@ -73,6 +73,25 @@ describe('filter', function () {
         }))
     });
 
+    describe('searchByKey', function () {
+        it('should return items if no query given', inject(function (searchByKeyFilter) {
+            var items = {1:'item1', 2:'item2', 3:'item3'};
+            expect(searchByKeyFilter(items)).toEqual(items)
+        }));
+        it('should return items if query empty', inject(function (searchByKeyFilter) {
+            var items = {1:'item1', 2:'item2', 3:'item3'};
+            expect(searchByKeyFilter(items, '')).toEqual(items)
+        }));
+        it('should return exected item if query matches', inject(function (searchByKeyFilter) {
+            var items = {'item1':'item1', 'item2':'item2', 'item3':'item3'};
+            expect(searchByKeyFilter(items, 'item2')).toEqual({'item2':'item2'})
+        }));
+        it('should return ignore letter case for given query', inject(function (searchByKeyFilter) {
+            var items = {'Item1':'Item1', 'Item2':'Item2', 'Item3':'Item3'};
+            expect(searchByKeyFilter(items, 'item2')).toEqual({'Item2':'Item2'})
+        }));
+    });
+
     describe('averageByValue', function () {
         it('should return zero if not data given', inject(function (averageByValueFilter) {
             expect(averageByValueFilter(null)).toEqual(0)

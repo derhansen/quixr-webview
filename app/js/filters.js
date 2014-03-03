@@ -47,7 +47,7 @@ angular.module('quixrWebview.filters', [])
             if (query === '' || typeof(query) === 'undefined') return items;
             var result = {};
             angular.forEach(items, function(value, key) {
-                if (key.indexOf(query) != -1) {
+                if (key.toLowerCase().indexOf(query) != -1) {
                     result[key] = value;
                 }
             });
