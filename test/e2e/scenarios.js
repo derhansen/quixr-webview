@@ -4,7 +4,7 @@
 
 describe('Quixr Webview', function() {
 
-  browser.get('index.html');
+  browser.get('index-e2e.html');
 
   it('should automatically redirect to /traffic when location hash/fragment is empty', function() {
     expect(browser.getLocationAbsUrl()).toMatch("/traffic");
@@ -14,7 +14,7 @@ describe('Quixr Webview', function() {
   describe('traffic', function() {
 
     beforeEach(function() {
-      browser.get('index.html#/traffic');
+        browser.get('index-e2e.html#/traffic');
     });
 
 
@@ -29,7 +29,7 @@ describe('Quixr Webview', function() {
   describe('diskspace', function() {
 
     beforeEach(function() {
-      browser.get('index.html#/diskspace');
+      browser.get('index-e2e.html#/diskspace');
     });
 
 

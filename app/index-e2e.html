@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en" ng-app="quixrWebview">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quixr Webview</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
+  <link rel="stylesheet" href="css/bootstrap-custom.css"/>
+</head>
+<body role="document">
+    <div class="wrapper" ng-controller="WrapperCtrl1">
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Quixr Webview</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li ng-class="{ active: isActive('/traffic')}"><a href="#/traffic">Traffic</a></li>
+                        <li ng-class="{ active: isActive('/diskspace')}"><a href="#/diskspace">Diskspace</a></li>
+                    </ul>
+                    <form class="navbar-form pull-right">
+                        <input class="form-control" placeholder="Search" ng-model="query" ng-disabled="searchDisabled()">
+                        <select class="form-control" ng-model="unit" ng-options="unit.k as unit.v for unit in units"
+                                ng-init="unit = 'kb'">
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container theme-showcase content" role="main" ng-view>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            Quixr Webview: v<span app-version></span>
+        </div>
+    </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="lib/bootstrap/bootstrap.min.js"></script>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular/angular-route.js"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+  <script src="js/controllers.js"></script>
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+
+  <script src="lib/angular-google-chart/ng-google-chart.js"></script>
+
+  <-- Scripts required for E2E tests -->
+  <script src="../test/lib/angular/angular-mocks.js"></script>
+  <script src="../scripts/e2e-mocks.js"></script>
+</body>
+</html>
